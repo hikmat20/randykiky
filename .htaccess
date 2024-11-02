@@ -1,0 +1,4 @@
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^nikahan\.megazainal\.online$
+RewriteRule ^/?$ "https\:\/\/nikahan\.megazainal\.online\/" [R=301,L]

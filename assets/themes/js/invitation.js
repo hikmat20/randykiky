@@ -84,55 +84,47 @@ $(document).ready(function () {
             success: function (result) {
                console.log(result);
                if (result.code == 1) {
-                  $("#alertMsg")
-                     .css({ opacity: "1" })
-                     .html("<small>" + result.msg + "</small>");
-                  const confirmation = () => {
-                     if (result.present == "1") {
-                        return "bg-success";
-                     } else if (result.present == "2") {
-                        return "bg-danger";
-                     } else if (result.present == "3") {
-                        return "bg-warning";
-                     } else {
-                        return false;
-                     }
-                  };
+                  $("#alertMsg").css({ opacity: "1" }).html("<small>" + result.msg + "</small>");
+                  let presentName = '';
+                  let bg= "";
 
+                     if (result.present == "1") {
+                        presentName = 'Hadir';
+                        bg= "bg-success";
+                     } else if (result.present == "2") {
+                        presentName = 'Tidak Hadir';
+                        bg= "bg-danger";
+                     } else if (result.present == "3") {
+                        presentName = 'Semoga Hadir';
+                        bg = "bg-warning";
+                     } else {
+                        presentName = '';
+                        bg= '';
+                     }
+                  
                   const greet =
-                     `<div class="slick-slide slick-cloned"><div><div class="px-3">
-                     <div class="card shadow-sm text-theme-primary" style="border-radius: 1rem; background-image:url('assets/images/background.jpg');background-position: top center;background-repeat: repeat-y;background-size: cover;">
-                        <div class="card-body position-relative">
-                           <div class="mb-3 px-1">
+                     `<div><div class="px-3">
+                        <div class="card shadow-sm text-theme-primary" style="border-radius: 1rem; background-image:url('assets/images/background.jpg');background-position: top center;background-repeat: repeat-y;background-size: cover;">
+                           <div class="card-body position-relative">
+                              <div class="mb-3 px-1">
                                  <div class="mb-2 d-flex justify-content-between align-items-center">
-                                    <span class="comments_name fw-bold">` +
-                     result.name +
-                     `</span>
-                                    <span class="badge badge-sm font-size-10 text-sm ` +
-                     confirmation +
-                     ` comments_confirmations">` +
-                     result.present +
-                     `</span>
+                                    <span class="comments_name fw-bold">${result.name}</span>
+                                    <span class="badge badge-sm font-size-10 text-sm ${bg}">
+                                    ${presentName}</span>
                                  </div>
                                  <p class=" text-theme-primary font-size-14 rounded-3">
-                                    ` +
-                     result.greeting +
-                     `
-                                    <small class="text-muted font-size-10 d-block mt-2"><i>` +
-                     result.date +
-                     `</i></small>
+                                    ${result.greeting}
+                                    <small class="text-muted font-size-10 d-block mt-2"><i>${result.date}</i></small>
                                  </p>
+                              </div>
                            </div>
-
                         </div>
-                     </div>
-                     </div>
-                     </div>
-               </div>`;
-                  $(".whises").slick("slickAdd", greet);
-                  console.log(result.count_present.dt_confirm);
-                  console.log(result.count_present.dt_unconfirm);
-                  console.log(result.count_present.dt_tentative);
+                     </div>`;
+                  $(".whises").slick("slickAdd", greet,$('.whises').slick('slickCurrentSlide')-1);
+                  // $(".whises .slick-list").attr('tabindex', 0).focus();
+                  // console.log(result.count_present.dt_confirm);
+                  // console.log(result.count_present.dt_unconfirm);
+                  // console.log(result.count_present.dt_tentative);
                   $("#total_comments").text(result.count_present.getGreeting);
                   $("#total_confirm").text(result.count_present.dt_confirm);
                   $("#total_unconfirm").text(result.count_present.dt_unconfirm);
@@ -205,7 +197,7 @@ function run_AOS() {
 }
 
 // Set the date we're counting down to
-var countDownDate = new Date("Dec 31, 2024 09:00:00").getTime();
+var countDownDate = new Date("Dec 8, 2024 09:00:00").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function () {
@@ -288,4 +280,23 @@ function openFullscreen() {
       /* IE11 */
       document.documentElement.msRequestFullscreen();
    }
+}
+
+
+// copy content
+
+const btn = document.getElementsByClassName('copy_content')
+
+
+const text = document.getElementById('content_copy').innerHTML;
+const copyContent = async () => {
+ try {
+   await navigator.clipboard.writeText(text);
+    document.getElementById('notif-copy').style.display = 'block'
+    setTimeout(() => {
+       document.getElementById('notif-copy').style.display = 'none'
+    },2000)
+ } catch (err) {
+   console.error('Failed to copy: ', err);
+   }   
 }

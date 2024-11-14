@@ -1,24 +1,25 @@
 <?php
 require_once 'models/timesince.php';
 require_once 'models/greetings.php';
+require_once 'models/basic.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Undangan Pernikahan Mega &mdash; Zainal</title>
-    <link href="https://nikahan.megazainal.online/assets/favicon.png" rel="icon">
-    <link href="https://nikahan.megazainal.online/assets/favicon.png" rel="apple-touch-icon">
+    <title><?= $title; ?></title>
+    <link href="<?= $base_url; ?>assets/favicon.png" rel="icon">
+    <link href="<?= $base_url; ?>assets/favicon.png" rel="apple-touch-icon">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta property="og:title" content="The Wedding of Mega & Zainal" />
-    <meta property="og:image" content="https://nikahan.megazainal.online/assets/thumbnail.jpg" />
-    <meta property="og:url" content="https://nikahan.megazainal.online/" />
-    <meta property=" og:site_name" content="Penrnikahan Mega & Zainal" />
-    <meta property="og:description" content="06 November 2022 - The Wedding of Mega & Zainal" />
-    <link rel="shortcut icon" href="https://nikahan.megazainal.online/assets/thumbnail.jpg" type="image/x-icon" />
-    <meta name="description" content="Undangan Pernikahan Mega &mdash; Zainal - 06 November 2022">
+    <meta property="og:title" content="<?= $title; ?>" />
+    <meta property="og:image" content="<?= $base_url; ?>assets/thumbnail.jpg" />
+    <meta property="og:url" content="<?= $base_url; ?>" />
+    <meta property=" og:site_name" content="<?= $site_name; ?>" />
+    <meta property="og:description" content="<?= $title . " - " . $date; ?>" />
+    <link rel="shortcut icon" href="<?= $base_url; ?>assets/thumbnail.jpg" type="image/x-icon" />
+    <meta name="description" content="<?= $title . " - " . $date; ?>">
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,36 +32,30 @@ require_once 'models/greetings.php';
     <link rel="stylesheet" href="assets/lib/aos/aos.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=content_copy" />
 
 </head>
 
 <body class="position-relative overflow-hidden">
     <audio id="myAudio" loop="true" autoplay="true">
-        <source src="assets/media/song-new.mp3" type="audio/ogg">
-        <source src="assets/media/song-new.mp3" type="audio/mpeg">
+        <source src="<?= $song; ?>" type="audio/ogg">
+        <source src="<?= $song; ?>" type="audio/mpeg">
     </audio>
     <div class="wrapper-container position-relative">
         <button onclick="topFunction()" id="myBtn" class="shadow" title="Go to top">
-            <span class="material-icons">
-                arrow_upward
-            </span>
+            <span class="material-icons">arrow_upward</span>
         </button>
         <button onclick="togglePlay()" id="btn-music" class="shadow" title="Play Song">
-            <span class="material-icons">
-                music_note
-            </span>
+            <span class="material-icons">music_note</span>
         </button>
+
         <!-- COVER -->
         <div class="content">
-
             <section class="cover pb-5">
-                <div class="text-content text-center absolute mt-5" style="z-index:9999 ;">
-                    <h3 class="title-text-1 fw- text-white text-shadow-sm" data-aos="zoom-in">The Wedding</h3>
-                    <h1 class="text-white font-size-36 text-shadow-md" data-aos="zoom-in" data-aos-delay="400">Mega &
-                        Zainal</h1>
-                    <p class="text-white text-shadow-sm py-3" data-aos="zoom-in-up" data-aos-delay="600">Minggu, 06
-                        November 2022</p>
+                <div class="text-content text-center absolute mt-4" style="z-index:9999 ;">
+                    <h3 class="text-white text-shadow-sm mb-0" data-aos="zoom-in">The Wedding</h3>
+                    <div class="richard_hamilton text-white font-size-46 text-shadow-md mb-0" data-aos="zoom-in" data-aos-delay="400"><?= $wedding; ?></div>
+                    <p class="text-white diamond_bridge font-size-18 text-shadow-sm py-2" data-aos="zoom-in-up" data-aos-delay="600"><?= $date; ?></p>
                 </div>
 
                 <div class="text-content text-center absolute bottom-text" style="z-index: 99999;">
@@ -80,18 +75,17 @@ require_once 'models/greetings.php';
                         <i class='bx bxs-book-heart'></i> Buka Undangan
                     </button>
                 </div>
-
+                <div class="fade-divider" style="background: linear-gradient(#000000ba,#ffffff00);width:100%;height:300px;position:absolute"></div>
+                <div class="fade-divider" style="background: linear-gradient(#ffffff00, #000000ba);width:100%;height:300px;bottom:0;position:absolute"></div>
                 <div class="section-divider-3"></div>
             </section>
 
 
             <section class="first-slide pb-5">
-                <div class="text-content text-center text-invitation absolute mt-5" style="z-index:1 ;">
-                    <h3 class="title-text-1 text-white text-shadow-sm" data-aos="zoom-in">The Wedding</h3>
-                    <h1 class="text-white font-size-36 text-shadow-md" data-aos="zoom-in" data-aos-delay="400">Mega &
-                        Zainal</h1>
-                    <p class="text-white text-shadow-sm" data-aos="zoom-in-up" data-aos-delay="600">Minggu, 06
-                        November 2022</p>
+                <div class="text-content text-center text-invitation absolute" style="z-index:1;margin-top:100px">
+                    <h3 class="text-white text-shadow-sm mb-0" data-aos="zoom-in">The Wedding</h3>
+                    <div class="richard_hamilton text-white font-size-46 text-shadow-md mb-1" data-aos="zoom-in" data-aos-delay="400"><?= $wedding; ?></div>
+                    <p class="text-white diamond_bridge font-size-18 text-shadow-sm" data-aos="zoom-in-up" data-aos-delay="600"><?= $date; ?></p>
                 </div>
 
                 <div class="slide-area">
@@ -105,13 +99,22 @@ require_once 'models/greetings.php';
                             </div>
                         </div>
                         <div class="single-photo">
-                            <div class="photo" style="background-image:url('assets/images/silde-cover/Photo-3.jpeg');">
+                            <div class="photo" style="background-image:url('assets/images/silde-cover/Photo-3.jpg');">
+                            </div>
+                        </div>
+                        <div class="single-photo">
+                            <div class="photo" style="background-image:url('assets/images/silde-cover/Photo-4.jpg');">
+                            </div>
+                        </div>
+                        <div class="single-photo">
+                            <div class="photo" style="background-image:url('assets/images/silde-cover/Photo-5.jpg');">
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="section-divider-3"></div>
+                <div class="fade-divider" style="background: linear-gradient(#ffffff00, #000000ba);width:100%;height:300px;bottom:0;position:absolute"></div>
             </section>
 
             <!-- Couple -->
@@ -131,15 +134,15 @@ require_once 'models/greetings.php';
                     </p>
 
                     <div class="photo-groom my-4" data-aos="fade-left">
-                        <img src="assets/images/couple/bride.png" alt="" class="img-fluid">
+                        <img src="assets/images/couple/groom.png" alt="" width="250" class="img-fluid">
                     </div>
                     <div class="text-content">
-                        <h1 class="title-text-2 text-shadow-md text-white mb-3" data-aos="fade-right" data-aos-delay="800">
-                            Mega Oktianingsih
-                        </h1>
+                        <div class="title-text-5 font-size-48 text-shadow-md text-white mb-3" data-aos="fade-right" data-aos-delay="800">
+                            <?= $groom; ?>
+                        </div>
                         <hr class="w-75 text-center m-auto border border-3 border-start-0 border-end-0 border-white border-bottom-0">
-                        <h5 class="mt-3 text-shadow-md text-white" data-aos="zoom-in">Putri Bungsu dari</h5>
-                        <h6 class="text-shadow-md text-white" data-aos="zoom-in">Bpk. Suparno (Alm) & Ibu Irah</h6>
+                        <h5 class="mt-3 text-shadow-md text-white" data-aos="zoom-in">Putra ke <?= $groom_children; ?> dari</h5>
+                        <h6 class="text-shadow-md text-white" data-aos="zoom-in"><?= $groom_father . ' & ' . $groom_mother; ?></h6>
                     </div>
 
                 </div>
@@ -150,16 +153,16 @@ require_once 'models/greetings.php';
 
                 <div class="text-content text-center py-3" style="z-index:9999 ;">
                     <div class="photo-groom my-4" data-aos="fade-right">
-                        <img src="assets/images/couple/groom.png" alt="" class="img-fluid">
+                        <img src="assets/images/couple/bride.png" width="250" alt="" class="img-fluid">
                     </div>
 
                     <div class="text-content">
-                        <h1 class="title-text-2 text-shadow-md text-white mb-3" data-aos="fade-left">
-                            <span>Zainal Arifin</span>
-                        </h1>
+                        <div class="title-text-5 font-size-48 text-shadow-md text-white mb-3" data-aos="fade-left">
+                            <?= $bride; ?>
+                        </div>
                         <hr class="w-75 text-center m-auto border border-3 border-start-0 border-end-0 border-white border-bottom-0">
-                        <h5 class="mt-3 text-shadow-md text-white" data-aos="zoom-in">Putra Pertama</h5>
-                        <h6 class="text-shadow-md text-white" data-aos="zoom-in">Bpk. Sugihardi (Alm) & Ibu Robiah</h6>
+                        <h5 class="mt-3 text-shadow-md text-white" data-aos="zoom-in">Putri ke <?= $bride_children; ?> dari</h5>
+                        <h6 class="text-shadow-md text-white" data-aos="zoom-in"><?= $bride_father . ' & ' . $bride_mother; ?></h6>
                     </div>
                 </div>
             </section>
@@ -225,45 +228,30 @@ require_once 'models/greetings.php';
                             <div class="text-center" data-aos="zoom-in" data-aos-delay="400">
                                 <img src="assets/images/icon/genders.svg" alt="" width="50px" class="">
                             </div>
-                            <h2 class="my-4 text-white mb-3 font-size-32" data-aos="fade-up">Akad</h4>
-                                <h5 data-aos="fade-up">Minggu, 06 November
-                                    2022</h5>
-                                <h6 data-aos="fade-up">Pukul : 09:00 WIB s/d
-                                    Selesai</h6>
-                                <p class="text-divider my-2" data-aos="fade-up">
-                                    <span class="material-icons md-24">
-                                        room
-                                    </span>
-                                </p>
-
-                                <h6 class="my-0" data-aos="fade-up">
-                                    Kediaman Ibu Irah, Dusun 02 Kebon Dalem
-                                    RT/RW. 003/004. Kel. Gumulung Lebak. Kec. Greged
-                                </h6>
-                                <!-- <a href="#" class="btn btn-sm fw-bold btn-light mt-4" data-aos="zoom-in">View Maps</a> -->
+                            <h2 class="my-4 text-white mb-3 font-size-32" data-aos="fade-up">Akad</h2>
+                            <h5 data-aos="fade-up"><?= $akad_date; ?></h5>
+                            <h6 data-aos="fade-up">Pukul : <?= $akad_time; ?></h6>
+                            <p class="text-divider my-2" data-aos="fade-up">
+                                <span class="material-icons md-24">room</span>
+                            </p>
+                            <h6 class="my-0" data-aos="fade-up"><?= $akad_address; ?></h6>
+                            <!-- <a href="#" class="btn btn-sm fw-bold btn-light mt-4" data-aos="zoom-in">View Maps</a> -->
                         </div>
                     </div>
 
                     <div class="card text-center shadow text-white bg-theme-primary py-3 border-0" style="border-radius:1rem ;" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="500">
                         <div class="card-body">
                             <div data-aos="zoom-in" data-aos-delay="800">
-                                <img src="assets/images/icon/flowers.svg" alt="" width="50px" class="">
+                                <img src="assets/images/icon/flowers.svg" alt="" width="50px">
                             </div>
-                            <h2 class="my-4 text-white mb-3 font-size-32" data-aos="fade-up">Resepsi</h4>
-                                <h5 data-aos="fade-up">Minggu, 06 November
-                                    2022</h5>
-                                <h6 data-aos="fade-up">Pukul : 10:00 WIB s/d
-                                    Selesai</h6>
-                                <p class="text-divider my-2" data-aos="fade-up">
-                                    <span class="material-icons md-24">
-                                        room
-                                    </span>
-                                </p>
-                                <h6 class="my-0" data-aos="fade-up">
-                                    Kediaman Ibu Irah, Dusun 02 Kebon Dalem
-                                    RT/RW. 003/004. Kel. Gumulung Lebak. Kec. Greged
-                                </h6>
-                                <!-- <a href="#" class="btn btn-sm btn-light fw-bold mt-4" data-aos="zoom-in">View Maps</a> -->
+                            <h2 class="my-4 text-white mb-3 font-size-32" data-aos="fade-up">Resepsi</h2>
+                            <h5 data-aos="fade-up"><?= $resepsi_date; ?></h5>
+                            <h6 data-aos="fade-up">Pukul : <?= $resepsi_time; ?></h6>
+                            <p class="text-divider my-2" data-aos="fade-up">
+                                <span class="material-icons md-24">room</span>
+                            </p>
+                            <h6 class="my-0" data-aos="fade-up"><?= $resepsi_address; ?></h6>
+                            <!-- <a href="#" class="btn btn-sm btn-light fw-bold mt-4" data-aos="zoom-in">View Maps</a> -->
                         </div>
                     </div>
                 </div>
@@ -274,8 +262,8 @@ require_once 'models/greetings.php';
                     <div class="card text-center shadow text-white bg-theme-primary border-0" style="border-radius:1rem ;" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="800">
                         <div class="card-body">
                             <h2 class="my-4 text-white mb-3 font-size-32" data-aos="fade-up">Maps</h2>
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.6037757248077!2d108.57280071477238!3d-6.817950695072401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa459ddc53f47c6cb!2zNsKwNDknMDQuNiJTIDEwOMKwMzQnMzAuMCJF!5e0!3m2!1sid!2sid!4v1661165779719!5m2!1sid!2sid" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"> </iframe>
-                            <a href="https://goo.gl/maps/rq7a6ftCuHS3tdk19" class="btn btn-sm fw-bold btn-light mt-4" data-aos="zoom-in">
+                            <iframe src="<?= $akad_map_frame; ?>" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"> </iframe>
+                            <a href="<?= $akad_map; ?>" target="_blank" class="btn btn-sm fw-bold btn-light mt-4" data-aos="zoom-in">
                                 <i class='bx bxs-map-alt mt-1'></i> Lihat Peta Lokasi
                             </a>
                         </div>
@@ -294,6 +282,18 @@ require_once 'models/greetings.php';
                         <img src="assets/images/galleries/image2.jpg" alt="" class="img-fluid">
                         <img src="assets/images/galleries/image3.jpg" alt="" class="img-fluid">
                         <img src="assets/images/galleries/image4.jpg" alt="" class="img-fluid">
+                        <img src="assets/images/galleries/image5.jpg" alt="" class="img-fluid">
+                        <img src="assets/images/galleries/image6.jpg" alt="" class="img-fluid">
+                        <img src="assets/images/galleries/image7.jpg" alt="" class="img-fluid">
+                        <img src="assets/images/galleries/image8.jpg" alt="" class="img-fluid">
+                        <img src="assets/images/galleries/image9.jpg" alt="" class="img-fluid">
+                        <img src="assets/images/galleries/image10.jpg" alt="" class="img-fluid">
+                        <img src="assets/images/galleries/image11.jpg" alt="" class="img-fluid">
+                        <img src="assets/images/galleries/image12.jpg" alt="" class="img-fluid">
+                        <img src="assets/images/galleries/image13.jpg" alt="" class="img-fluid">
+                        <img src="assets/images/galleries/image14.jpg" alt="" class="img-fluid">
+                        <img src="assets/images/galleries/image15.jpg" alt="" class="img-fluid">
+                        <img src="assets/images/galleries/image16.jpg" alt="" class="img-fluid">
                     </div>
                 </div>
                 <div class="slider slider-nav d-flex justify-content-between overflow-hidden">
@@ -301,6 +301,18 @@ require_once 'models/greetings.php';
                     <img src="assets/images/galleries/image2.jpg" alt="" height="120px" class="img-fluid">
                     <img src="assets/images/galleries/image3.jpg" alt="" height="120px" class="img-fluid">
                     <img src="assets/images/galleries/image4.jpg" alt="" height="120px" class="img-fluid">
+                    <img src="assets/images/galleries/image5.jpg" alt="" height="120px" class="img-fluid">
+                    <img src="assets/images/galleries/image6.jpg" alt="" height="120px" class="img-fluid">
+                    <img src="assets/images/galleries/image7.jpg" alt="" height="120px" class="img-fluid">
+                    <img src="assets/images/galleries/image8.jpg" alt="" height="120px" class="img-fluid">
+                    <img src="assets/images/galleries/image9.jpg" alt="" height="120px" class="img-fluid">
+                    <img src="assets/images/galleries/image10.jpg" alt="" height="120px" class="img-fluid">
+                    <img src="assets/images/galleries/image11.jpg" alt="" height="120px" class="img-fluid">
+                    <img src="assets/images/galleries/image12.jpg" alt="" height="120px" class="img-fluid">
+                    <img src="assets/images/galleries/image13.jpg" alt="" height="120px" class="img-fluid">
+                    <img src="assets/images/galleries/image14.jpg" alt="" height="120px" class="img-fluid">
+                    <img src="assets/images/galleries/image15.jpg" alt="" height="120px" class="img-fluid">
+                    <img src="assets/images/galleries/image16.jpg" alt="" height="120px" class="img-fluid">
                 </div>
             </section>
 
@@ -316,26 +328,18 @@ require_once 'models/greetings.php';
                         tanda kasih dengan transfer
                         ke rekening berikut:
                     </h6>
-                    <div class="gifts py-3 m-auto d-flex flex-column" data-aos="zoom-in">
+                    <div class="gifts py-3 mb-5 m-auto d-flex flex-column" data-aos="zoom-in">
                         <div class="card shadow-md m-auto border-0 shadow" style="min-width:200px;border-radius: 1rem;min-height: 100px;">
                             <div class="text-theme-primary text-center card-body">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/2560px-Bank_Central_Asia.svg.png" width="80px" class="mb-3 img-fluid" alt="">
                                 <!-- <h4 class="fw-bolder spacing-2" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">BCA</h4> -->
-                                <h5 class="fw-bold spacing-2" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">3040929613</h5>
+                                <h5 class="fw-bold spacing-2" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                                    <span id="content_copy"><?= $bank_number_1; ?></span>
+                                    <span class="material-symbols-outlined font-size-14" onclick="copyContent()" title="Copy to Clipboard" data-toggle="tooltip" style="cursor: pointer;">content_copy</span>
+                                </h5>
+                                <div id="notif-copy" style="display: none;" class="alert alert-success mb-0 font-size-12 p-0" role="alert">Copied!</div>
                                 <p class="mb-0" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                                    MEGA OKTIANINGSIH
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gifts py-2 pb-5 m-auto d-flex flex-column" data-aos="zoom-in">
-                        <div class="card shadow-md m-auto border-0 shadow" style="min-width:200px;border-radius: 1rem;min-height: 100px;">
-                            <div class="text-theme-primary text-center card-body">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/2560px-Bank_Central_Asia.svg.png" width="80px" class="mb-3 img-fluid" alt="">
-                                <h5 class="fw-bold spacing-2" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">4140121873</h5>
-                                <p class="mb-0" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                                    ZAINAL ARIFIN
+                                    <?= $bank_name_1; ?>
                                 </p>
                             </div>
                         </div>
@@ -443,12 +447,10 @@ require_once 'models/greetings.php';
                     </span>
                 </p>
 
-                <h1 class="text-center text-white">Mega & Zainal</h1>
+                <div class="richard_hamilton font-size-46 text-center text-white"><?= $wedding; ?></div>
             </section>
             <div id="alertMsg" class="text-white text-center">
-                <small>
-                    You should check in on some of those fields below.
-                </small>
+                <small></small>
             </div>
         </div>
     </div>

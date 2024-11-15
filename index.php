@@ -17,10 +17,9 @@ require_once 'models/basic.php';
     <meta property="og:image" content="<?= $base_url; ?>assets/thumbnail.jpg" />
     <meta property="og:url" content="<?= $base_url; ?>" />
     <meta property=" og:site_name" content="<?= $site_name; ?>" />
-    <meta property="og:description" content="<?= $title . " - " . $date; ?>" />
+    <meta property="og:description" content="<?= $date; ?> | Suatu kehormatan...... Lorem ipsum dolor sit amet, consectetur adipisicing elit. A distinctio quia modi. Totam dolor veritatis cupiditate, placeat ipsam pariatur quis vero inventore soluta beatae, neque autem molestias, deserunt est explicabo!" />
     <link rel="shortcut icon" href="<?= $base_url; ?>assets/thumbnail.jpg" type="image/x-icon" />
-    <meta name="description" content="<?= $title . " - " . $date; ?>">
-
+    <meta name="description" content="<?= $date; ?> | Suatu kehormatan......">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="assets/themes/css/style.css">

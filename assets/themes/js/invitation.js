@@ -286,8 +286,6 @@ function openFullscreen() {
 // copy content
 
 const btn = document.getElementsByClassName('copy_content')
-
-
 const text = document.getElementById('content_copy').innerHTML;
 const copyContent = async () => {
  try {

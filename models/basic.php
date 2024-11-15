@@ -2,8 +2,8 @@
 $base_url           = "https://weinvite.site/randykiky/";
 $wedding            = "Randy & Kiky";
 $date               = "Minggu, 8 Desember 2024";
-$title              = "Undangan Pernikahan " . $wedding;
-$site_name          = "Undangan Pernikahan " . $wedding;
+$title              = "The Wedding " . $wedding;
+$site_name          = $wedding;
 $song               = "assets/media/song.mp3";
 /* Groom */
 $groom              = "Randy Try Atmono";

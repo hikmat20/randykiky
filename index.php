@@ -14,17 +14,16 @@ require_once 'models/basic.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta property="og:title" content="<?= $title; ?>" />
-    <meta property="og:image" content="<?= $base_url; ?>assets/thumbnail.jpg" />
+    <meta property="og:image" content="<?= $base_url; ?>assets/thumbnail.png" />
     <meta property="og:url" content="<?= $base_url; ?>" />
     <meta property=" og:site_name" content="<?= $site_name; ?>" />
-    <meta property="og:description" content="<?= $date; ?> | Suatu kehormatan...... Lorem ipsum dolor sit amet, consectetur adipisicing elit. A distinctio quia modi. Totam dolor veritatis cupiditate, placeat ipsam pariatur quis vero inventore soluta beatae, neque autem molestias, deserunt est explicabo!" />
-    <link rel="shortcut icon" href="<?= $base_url; ?>assets/thumbnail.jpg" type="image/x-icon" />
-    <meta name="description" content="<?= $date; ?> | Suatu kehormatan......">
+    <meta property="og:description" content="<?= $date; ?>" />
+    <link rel="shortcut icon" href="<?= $base_url; ?>assets/thumbnail.png" type="image/x-icon" />
+    <meta name="description" content="<?= $date; ?>">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="assets/themes/css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="assets/lib/bootstraps-5/bootstrap.min.css">
     <link rel="stylesheet" href="assets/lib/slick/slick.css">
     <link rel="stylesheet" href="assets/lib/slick/slick-theme.css">

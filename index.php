@@ -126,7 +126,7 @@ require_once 'models/basic.php';
                         بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
                         <br>
                         <br>
-                        <span class="fw-bold d-block mb-2"> Assalamu'alaikum Wr. Wb</span>
+                        <span class="fw-bold d-block mb-2"> Assalamu'alaikum Wr. Wb.</span>
                         Dengan memohon Ridho dan Rahmat Allah SWT.
                         Kami bermaksud akan menyelenggarakan acara pernikahan.
                     </p>
@@ -232,6 +232,7 @@ require_once 'models/basic.php';
                             <p class="text-divider my-2" data-aos="fade-up">
                                 <span class="material-icons md-24">room</span>
                             </p>
+                            <h6 class="my-0" data-aos="fade-up"><?= $akad_location; ?></h6>
                             <h6 class="my-0" data-aos="fade-up"><?= $akad_address; ?></h6>
                             <!-- <a href="#" class="btn btn-sm fw-bold btn-light mt-4" data-aos="zoom-in">View Maps</a> -->
                         </div>
@@ -248,6 +249,7 @@ require_once 'models/basic.php';
                             <p class="text-divider my-2" data-aos="fade-up">
                                 <span class="material-icons md-24">room</span>
                             </p>
+                            <h6 class="my-0" data-aos="fade-up"><?= $resepsi_location; ?></h6>
                             <h6 class="my-0" data-aos="fade-up"><?= $resepsi_address; ?></h6>
                             <!-- <a href="#" class="btn btn-sm btn-light fw-bold mt-4" data-aos="zoom-in">View Maps</a> -->
                         </div>

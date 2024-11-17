@@ -11,14 +11,14 @@ $groom_sort_name          = "Randy";
 $groom_children           = "3";
 $groom_ig                 = "@randyatmono";
 $groom_mother             = "Ibu Sutiah";
-$groom_father             = "Bpk. Rowi Bakri (Alm)";
+$groom_father             = "Alm. Bpk. Rowi Bakri";
 
 /* Bride */
 $bride                    = "Kiki Sri Puspitasari";
 $bride_sort_name          = "Kiky";
 $bride_children           = "5";
 $bride_ig                 = "@kspuspita";
-$bride_mother             = "Ibu Juminah (Alm)";
+$bride_mother             = "Almh. Ibu Juminah";
 $bride_father             = "Bpk. Momon Rohiman";
 
 /* Event */
